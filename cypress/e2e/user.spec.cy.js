@@ -14,8 +14,13 @@ describe('Orage HRM Tests', () => {
     firstNameField:"[name='firstName']",
     lastNameField:"[name='lastName']",
     genericField:".oxd-input--active",
-    dateField:"[placeholder='yyyy-dd-mm']",
+    licenseExpiryDateField:"[placeholder='yyyy-dd-mm']",
     dateCloseButton:".--close",
+    genericComboBoxField:".oxd-select-text--arrow",
+    fifthItemComboBox:".oxd-select-dropdown > :nth-child(5)",
+    thirdItemComboBox:".oxd-select-dropdown > :nth-child(3)",
+    dateOfBirthField:"[placeholder='yyyy-dd-mm']",
+    genderField:".oxd-radio-wrapper",
     submitButton:"[type='submit']"
   }
 
@@ -34,9 +39,15 @@ describe('Orage HRM Tests', () => {
     cy.get(selectorList.genericField).eq(3).clear().type('Employee')
     cy.get(selectorList.genericField).eq(4).clear().type('OtherIdTest')
     cy.get(selectorList.genericField).eq(5).clear().type('DriversLicenseTest')
-    cy.get(selectorList.dateField).eq(0).clear().type('2025-10-01')
+    cy.get(selectorList.licenseExpiryDateField).eq(0).clear().type('2025-10-01')
     cy.get(selectorList.dateCloseButton).click()
-    cy.get(selectorList.submitButton).eq(0).click()
+    cy.get(selectorList.genericComboBoxField).eq(0).click({force: true})
+    cy.get(selectorList.fifthItemComboBox).click()
+    cy.get(selectorList.genericComboBoxField).eq(1).click({force: true})
+    cy.get(selectorList.thirdItemComboBox).click()
+    cy.get(selectorList.dateOfBirthField).eq(1).clear().type('1980-10-05')
+    cy.get(selectorList.genderField).eq(0).click()
+    cy.get(selectorList.submitButton).eq(0).click({force: true})
     cy.get('body').should('contain','Successfully Updated')
     cy.get('.oxd-toast-close')
 
