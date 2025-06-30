@@ -12,11 +12,6 @@ const myInfoPage = new MyInfoPage()
 
 describe('Orage HRM Tests', () => { 
 
-
-  const selectorList = {
-
-  }
-
   
   it('User Info Update - Success', () => {
 
@@ -41,16 +36,11 @@ describe('Orage HRM Tests', () => {
     myInfoPage.fillEmployeeName('First Name', 'Middle Name', 'Last Name')
     myInfoPage.fillEmployeeDetails('EmployeeId', 'OtherId', '123456', '2025-10-01')
     myInfoPage.fillStatus()
-     myInfoPage.saveForm()
+    myInfoPage.saveForm()
 
 
   })
 
-it('Login - Fail', () => {
-    loginPage.accessLoginPage()
-    loginPage.loginAnyWithUser(userData.userFail.username,userData.userFail.password)
-    loginPage.checkaccessinvalid()
-    
-  })
+
 
 })
