@@ -4,7 +4,9 @@ import DashboardPage from '../pages/dashboardPage.js'
 import MenuPage from '../pages/menuPage.js'
 import MyInfoPage from '../pages/myInfoPage.js'
 
+const Chance = require('chance')
 
+const chance = new Chance()
 const loginPage = new LoginPage()
 const dashboardPage = new DashboardPage()
 const menuPage = new MenuPage()
@@ -12,7 +14,7 @@ const myInfoPage = new MyInfoPage()
 
 describe('Orage HRM Tests', () => { 
 
-  
+
   it('User Info Update - Success', () => {
 
     loginPage.accessLoginPage()
@@ -33,7 +35,7 @@ describe('Orage HRM Tests', () => {
     menuPage.accessBuzz()
     menuPage.accessMyInfo()
 
-    myInfoPage.fillEmployeeName('First Name', 'Middle Name', 'Last Name')
+    myInfoPage.fillEmployeeName(chance.first(),'Middle Name', chance.last())
     myInfoPage.fillEmployeeDetails('EmployeeId', 'OtherId', '123456', '2025-10-01')
     myInfoPage.fillStatus()
     myInfoPage.saveForm()
