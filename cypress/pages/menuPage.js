@@ -17,9 +17,15 @@ class MenuPage {
         }
        
         return selector
+        
+        
    
     }
 
+    accessMyInfo() {
+        cy.get(this.selectorList().myInfoButton).click()
+
+    }
     accessPerformance() {
         cy.get(this.selectorList().performanceButton).click()
     }
@@ -66,10 +72,7 @@ class MenuPage {
         cy.get(this.selectorList().buzzButton).click()
     }
 
-     accessMyInfo() {
-        cy.get(this.selectorList().myInfoButton).click()
-
-    }
+     
 }
 
 

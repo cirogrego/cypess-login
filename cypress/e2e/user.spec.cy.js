@@ -18,7 +18,7 @@ describe('Orage HRM Tests', () => {
   }
 
   
-  it.only('User Info Update - Success', () => {
+  it('User Info Update - Success', () => {
 
     loginPage.accessLoginPage()
     loginPage.loginAnyWithUser(userData.userSuccess.username,userData.userSuccess.password)
@@ -47,11 +47,9 @@ describe('Orage HRM Tests', () => {
   })
 
 it('Login - Fail', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorList.usernameField).type(userData.userFail.username)
-    cy.get(selectorList.passwordField).type(userData.userFail.password)
-    cy.get(selectorList.loginButton).click()
-    cy.get(selectorList.wrongCredentialAlert)
+    loginPage.accessLoginPage()
+    loginPage.loginAnyWithUser(userData.userFail.username,userData.userFail.password)
+    loginPage.checkaccessinvalid()
     
   })
 
